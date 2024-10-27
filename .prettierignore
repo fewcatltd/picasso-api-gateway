@@ -1,0 +1,3 @@
+**/*.yml
+**/*.d.ts
+node_modules/

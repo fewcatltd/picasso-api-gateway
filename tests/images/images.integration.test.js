@@ -8,7 +8,7 @@ describe('Route /image tests', () => {
   let app
 
   before(async () => {
-    app = await initApp({skipMetrics: true, skipServer: true})
+    app = await initApp()
   })
 
   after(() => {

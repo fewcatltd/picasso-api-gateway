@@ -4,7 +4,7 @@ import {createServer} from 'http'
 import configureMiddleware from './middlewares/index.js'
 import configureRoutes from './routes/index.js'
 import errorHandler from 'error-handler-json'
-import Logger from './common/Logger.js'
+import Logger from './common/logger.js'
 import Config from './common/config.js'
 import gracefulShutdown from './common/gracefulShutdown.js'
 import {createRequire} from "module";

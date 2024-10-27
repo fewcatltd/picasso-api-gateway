@@ -6,7 +6,7 @@ import Joi from 'joi'
 import axios from 'axios'
 import {pipeline} from 'stream'
 import {promisify} from 'util'
-import Logger from '../common/Logger.js'
+import Logger from '../common/logger.js'
 import Config from '../common/config.js'
 
 const logger = Logger.child({module: 'image.js'})

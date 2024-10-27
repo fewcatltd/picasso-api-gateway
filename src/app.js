@@ -15,13 +15,13 @@ const logger = Logger.child({module: 'app.js'})
 
 const initApp = async (options = {}) => {
   try {
-    // Инициализируем Redis, если он не был передан (для тестов можно передать mock Redis)
     const redis = options.redis || new Redis(Config.redis.url, {
       retryStrategy(times) {
         return Math.min(times * 2000, 10000)
       }
     })
 
+    redis.on('connect', () => logger.info('Redis connected'))
     redis.on('error', (err) => logger.error('Redis error:', err))
 
     const app = express()

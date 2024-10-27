@@ -3,7 +3,7 @@ import imageRouter from './image.js';
 import healthRouter from './health.js';
 import createRateLimitMiddleware from '../middlewares/rateLimiterMiddleware.js';
 
-const Logger = require('../common/logger.js');
+import Logger from '../common/logger.js';
 
 export default (app, redis) => {
   app.use(

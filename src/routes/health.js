@@ -1,6 +1,5 @@
 import express from 'express'
 import checkRedisConnection from '../middlewares/checkRedisConnection.js'
-import rateLimiterMiddleware from '../middlewares/rateLimiterMiddleware.js'
 
 const router = express.Router()
 

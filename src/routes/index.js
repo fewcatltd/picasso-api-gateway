@@ -2,13 +2,14 @@ import imagesRouter from './images.js';
 import imageRouter from './image.js';
 import healthRouter from './health.js';
 import createRateLimitMiddleware from '../middlewares/rateLimiterMiddleware.js';
+import Config from '../common/config.js'
 
 export default (app, redis) => {
   app.use(
     '/images',
     createRateLimitMiddleware({
-      windowMs: 60 * 1000,
-      max: 100,
+      windowMs: Config.rps.images.windowMs,
+      max: Config.rps.images.max,
       message: 'Too many requests, please try again later.',
       redis,
     }),
@@ -18,8 +19,8 @@ export default (app, redis) => {
   app.use(
     '/image',
     createRateLimitMiddleware({
-      windowMs: 60 * 1000,
-      max: 100,
+      windowMs: Config.rps.image.windowMs,
+      max: Config.rps.image.max,
       message: 'Too many requests, please try again later.',
       redis,
     }),
@@ -29,8 +30,8 @@ export default (app, redis) => {
   app.use(
     '/health',
     createRateLimitMiddleware({
-      windowMs: 3 * 1000,
-      max: 1,
+      windowMs: Config.rps.health.windowMs,
+      max: Config.rps.health.max,
       message: 'Too many requests, please try again later.',
       redis,
     }),

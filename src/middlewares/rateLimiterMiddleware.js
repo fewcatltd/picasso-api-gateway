@@ -17,6 +17,7 @@ function createRateLimitMiddleware(options = {
     message: options.message || 'Too many requests, please try again later.',
     keyGenerator: (req) => req.headers['x-forwarded-for'] || req.socket.remoteAddress,
     passOnStoreError: false,
+    skip: (req) => req.headers['user-agent'] === 'kube-probe/1.31',
     store: new RedisStore({
       sendCommand: (...args) => options.redis.call(...args)
     })

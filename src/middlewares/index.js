@@ -11,7 +11,7 @@ export default (app) => {
   app.use(express.urlencoded({extended: false}))
   app.use(express.json())
   app.use((req, res, next) => {
-    Logger.child({module: 'index.js', req}).debug('Request received')
+    Logger.child({requestId: req.id}).debug('Incoming request', {url: req.url, method: req.method})
     next()
   })
 

@@ -6,7 +6,7 @@ import initApp from '../src/app.js'
 describe('Rate limit test', () => {
   let app
   before(async () => {
-    app = await initApp()
+    app = await initApp({skipMetrics: true})
     await app.locals.redis.flushall()
   })
 

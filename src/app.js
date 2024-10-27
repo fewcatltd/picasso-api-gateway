@@ -10,7 +10,7 @@ import { createRequire } from 'module';
 const apiMetrics = createRequire(import.meta.url)("prometheus-api-metrics");
 const logger = Logger.child({ module: 'app.js' });
 
-const initApp = async () => {
+const initApp = async (options = {}) => {
   try {
     const redis = new Redis(Config.redis.url, {
       retryStrategy(times) {

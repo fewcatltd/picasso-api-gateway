@@ -8,7 +8,7 @@ describe('Route /image tests', () => {
   let app
 
   before(async () => {
-    app = await initApp()
+    app = await initApp({skipMetrics: true})
   })
 
   after(() => {
@@ -36,7 +36,7 @@ describe('Route /image tests', () => {
         maxHeight: 200,
         format: 'gif'
       }
-      const queryParams = new URLSearchParams(query).toString();
+      const queryParams = new URLSearchParams(query).toString()
 
       nock(`${Config.microservices.imageProcessing.url}`)
         .get(`/images?${queryParams}`)

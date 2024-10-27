@@ -35,8 +35,8 @@ router.get('/', validator.query(Joi.object({
 
     res.status(response.status).json(response.data)
   } catch (e) {
-    logger.error('Error creating image', e)
-    res.status(500).json({error: 'Failed to create image'})
+    logger.error('Failed to get images', e)
+    res.status(500).json({error: 'Failed to get images'})
   }
 })
 

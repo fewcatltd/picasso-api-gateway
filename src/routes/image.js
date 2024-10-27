@@ -71,7 +71,7 @@ router.get(
       })
       await streamPipeline(imageResponse.data, res)
     } catch (error) {
-      logger.child({imageId: req.params.id}).error('Error retrieving the image', error.message)
+      logger.child({imageId: req.params.id}).error('Error retrieving the image', error)
       const status = error.response?.status || 500
       res.status(status).send('Error retrieving the image')
     }

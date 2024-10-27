@@ -29,7 +29,7 @@ export default (app, redis) => {
   app.use(
     '/health',
     createRateLimitMiddleware({
-      windowMs: 5 * 1000,
+      windowMs: 3 * 1000,
       max: 1,
       message: 'Too many requests, please try again later.',
       redis,
